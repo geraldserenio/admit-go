@@ -294,7 +294,7 @@ const FullWidthText = styled.section`
 `;
 
 const FactGrid = styled.section`
-  padding: 4rem 14rem;
+  padding: 1rem 3rem;
   background: #fff;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

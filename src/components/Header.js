@@ -5,6 +5,7 @@ import { generateIcon, Icon } from "../settings/generate-icon";
 import LanguageDropdown from "./shared/LanguageDropdown";
 import NavButton from "./shared/NavButton";
 import { FaBars } from "react-icons/fa";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
   const [language, setLanguage] = useState(
@@ -12,12 +13,18 @@ const Header = () => {
   );
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const location = useLocation();
+
   const handleLanguageChange = (e) => {
     setLanguage(e.target.value);
     localStorage.clear();
     localStorage.setItem("lang", e.target.value);
     location.reload();
   };
+  useEffect(() => {
+    setMenuOpen(false);
+    console.log(location.pathname);
+  }, [location.pathname]);
 
   useEffect(() => {
     const closeMenu = () => setMenuOpen(false);
@@ -32,16 +39,12 @@ const Header = () => {
           src={generateIcon("Logo")}
           style={{ height: "70px", width: "70px" }}
         />
-        <Burger onClick={() => setMenuOpen((prev) => !prev)}>
-          <FaBars size={24} />
-        </Burger>
       </Left>
 
       <Right open={menuOpen}>
         <NavButton to="/home">Home</NavButton>
         <NavButton to="/courses">Courses</NavButton>
         <NavButton
-          to="/study"
           dropdownItems={[
             { label: "Year Zero", to: "/study/year-zero" },
             { label: "Bachelor", to: "/study/bachelor" },
@@ -51,7 +54,6 @@ const Header = () => {
           Study
         </NavButton>
         <NavButton
-          to="/finance"
           dropdownItems={[
             { label: "Credit for tuition", to: "/finance/tuition-fee-loan" },
             { label: "Maintenance loan", to: "/finance/maintenance-loan" },
@@ -64,6 +66,10 @@ const Header = () => {
         <NavButton to="/contact-us">Contact</NavButton>
         <LanguageDropdown value={language} onChange={handleLanguageChange} />
       </Right>
+
+      <Burger onClick={() => setMenuOpen((prev) => !prev)}>
+        <FaBars size={24} />
+      </Burger>
     </Nav>
   );
 };

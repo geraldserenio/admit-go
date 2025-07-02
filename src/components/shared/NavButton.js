@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { ORANGE, PURPLE, LIGHT_ORANGE_BACKGROUND } from "../../settings/colors";
@@ -8,7 +8,9 @@ const NavButton = ({ to, children, dropdownItems = [] }) => {
 
   return (
     <Wrapper>
-      <ButtonLink to={to}>{children}</ButtonLink>
+      <ButtonLink onClick={console.log("shet")} to={to}>
+        {children}
+      </ButtonLink>
 
       {hasDropdown && (
         <DropdownMenu>
