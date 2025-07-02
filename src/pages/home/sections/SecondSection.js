@@ -56,11 +56,6 @@ const NoHiddenCostContainer = styled.div`
   justify-content: center;
 `;
 
-const SloganRightImage = styled.div`
-  width: 50%;
-  border: 1px solid red;
-`;
-
 const SloganContainer = styled.div`
   align-items: center;
   box-sizing: border-box;

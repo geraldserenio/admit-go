@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import HomeSloganSection, {
   slideFromLeft,
 } from "../../components/HomeSloganSection";
@@ -9,6 +9,7 @@ import { generateIcon, Icon } from "../../settings/generate-icon";
 import { LIGHT_ORANGE_BACKGROUND } from "../../settings/colors";
 import StudentTestimonials from "./sections/StudentTestimonials";
 import WhoWeAre from "./sections/WhoWeAre";
+import { useInView } from "react-intersection-observer";
 
 export const slideFromRight = keyframes`
   from {
@@ -21,12 +22,25 @@ export const slideFromRight = keyframes`
   }
 `;
 
+export const animateOnVisibleRight = css`
+  ${({ $isVisible }) =>
+    $isVisible &&
+    css`
+      animation: ${slideFromRight} 1.5s ease-out forwards;
+    `}
+`;
+
 const Home = () => {
+  const [ref, inView] = useInView({
+    triggerOnce: true, // only animate once
+    threshold: 0.3, // % of component visible before triggering
+  });
+
   return (
     <MainContainer>
       <SloganContainer>
         <HomeSloganSection />
-        <SloganRightImage>
+        <SloganRightImage ref={ref} $isVisible={inView}>
           <Icon src={generateIcon("w9")} />
         </SloganRightImage>
       </SloganContainer>
@@ -54,7 +68,7 @@ export const MainContainer = styled.div`
 
 const SloganRightImage = styled.div`
   width: 50%;
-  animation: ${slideFromRight} 0.6s ease-out forwards;
+  ${animateOnVisibleRight};
 `;
 
 const SloganContainer = styled.div`

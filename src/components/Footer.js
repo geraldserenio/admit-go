@@ -37,7 +37,7 @@ const Footer = () => {
             <FaPhone /> +44 7830 351402
           </ContactItem>
           <ContactItem>
-            <FaEnvelope /> support@admitgo.com
+            <FaEnvelope /> director@admitgo.co.uk
           </ContactItem>
           <SocialIcons>
             <a href="#">
@@ -118,6 +118,15 @@ const Footer = () => {
             </li>
             <li>
               <a href="/contact-us">Contact</a>
+            </li>
+            <li>
+              <a href="/privacy-policy">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="/terms-and-conditions">Terms & Condition</a>
+            </li>
+            <li>
+              <a href="/cookies">Cookies</a>
             </li>
           </LinkList>
         </Column>

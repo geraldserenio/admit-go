@@ -17,6 +17,8 @@ import TuitionFeeLoanSection from "pages/finance/maintenance-loan/TuitionFeeLoan
 import { TuitionFeeLoanPage } from "pages/finance/maintenance-loan/TuitionFeeLoanPage";
 import WhatsAppFloatingButton from "components/shared/WhatsAppFloatingButton";
 import PrivacyPolicyPage from "pages/privacy-policy/PrivacyPolicyPage";
+import TermsAndConditionPage from "pages/terms-and-conditions/TermsAndConditionPage";
+import Cookies from "pages/cookies/Cookies";
 // import Master from "./pages/Master";
 // import Contact from "./pages/Contact";
 // import Courses from "./pages/Courses";
@@ -48,6 +50,8 @@ const App = () => (
         element={<TuitionFeeLoanPage />}
       />
       <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+      <Route path="/terms-and-conditions" element={<TermsAndConditionPage />} />
+      <Route path="/cookies" element={<Cookies />} />
 
       {/* 
       <Route path="/courses" element={<Courses />} />

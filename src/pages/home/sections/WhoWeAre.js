@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { gap } from "../../../settings/sizing";
 import { DARK_PURPLE, ORANGE, PURPLE } from "../../../settings/colors";
 import { TRANSLATION } from "../../../translation/translation";
@@ -7,12 +7,26 @@ import { Title } from "./StudentTestimonials";
 import { slideFromLeft } from "components/HomeSloganSection";
 import { bounce } from "components/shared/SloganSection";
 import { useNavigate } from "react-router-dom";
+import { useInView } from "react-intersection-observer";
+import { slideFromRight } from "../Home";
+
+const animateOnVisibleRight = css`
+  ${({ $isVisible }) =>
+    $isVisible &&
+    css`
+      animation: ${slideFromRight} 1.5s ease-out forwards;
+    `}
+`;
 
 const WhoWeAre = () => {
   const lang = localStorage.getItem("lang") || "en";
   const navigate = useNavigate();
+  const [ref, inView] = useInView({
+    triggerOnce: true, // only animate once
+    threshold: 0.3, // % of component visible before triggering
+  });
   return (
-    <HeroSection>
+    <HeroSection ref={ref} $isVisible={inView}>
       <Title>{TRANSLATION?.lets_get_to_know_each_other[lang]}</Title>
       <H1>{TRANSLATION?.who_are_we[lang]}</H1>
       <Paragraph>{TRANSLATION?.your_uk_study_partner[lang]}</Paragraph>
@@ -62,6 +76,7 @@ const HeroSection = styled.div`
   width: 50%;
   padding: ${gap}px;
   box-sizing: border-box;
+  ${animateOnVisibleRight}
 `;
 
 export const PrimaryButton = styled.button`

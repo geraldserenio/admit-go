@@ -1,9 +1,10 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import { DARK_PURPLE, ORANGE, PURPLE } from "../settings/colors";
 import { gap } from "../settings/sizing";
 import { TRANSLATION } from "../translation/translation";
 import { bounce } from "./shared/SloganSection";
+import { useInView } from "react-intersection-observer";
 
 // Animation keyframes
 export const slideFromLeft = keyframes`
@@ -17,12 +18,27 @@ export const slideFromLeft = keyframes`
   }
 `;
 
+export const animateOnVisible = css`
+  ${({ $isVisible }) =>
+    $isVisible &&
+    css`
+      animation: ${slideFromLeft} 1.5s ease-out forwards;
+    `}
+`;
+
 const HomeSloganSection = () => {
   const lang = localStorage.getItem("lang") || "en";
+  const [ref, inView] = useInView({
+    triggerOnce: true, // only animate once
+    threshold: 0.3, // % of component visible before triggering
+  });
+
   return (
-    <HeroSection>
-      <H1>{TRANSLATION?.slogan[lang]}</H1>
-      <Paragraph>We’re here to help every step of the way</Paragraph>
+    <HeroSection ref={ref} $isVisible={inView}>
+      <H1 $isVisible={inView}>{TRANSLATION?.slogan[lang]}</H1>
+      <Paragraph $isVisible={inView}>
+        We’re here to help every step of the way
+      </Paragraph>
       <PrimaryButton>Get Started</PrimaryButton>
     </HeroSection>
   );
@@ -32,7 +48,7 @@ export const H1 = styled.h1`
   color: ${PURPLE};
   font-size: 3rem;
   font-weight: 700;
-  animation: ${slideFromLeft} 0.6s ease-out forwards;
+  ${animateOnVisible}
 `;
 
 export const H2 = styled.h2`
@@ -51,7 +67,7 @@ export const Paragraph = styled.h1`
   color: ${DARK_PURPLE};
   font-size: 1.25rem;
   margin: 1rem 0;
-  animation: ${slideFromLeft} 0.8s ease-out forwards;
+  ${animateOnVisible}
 `;
 
 const HeroSection = styled.div`
