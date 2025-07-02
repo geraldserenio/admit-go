@@ -1,6 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { DesktopPagePadding, gap } from "../../../settings/sizing";
+import {
+  desktopDevice,
+  DesktopPagePadding,
+  gap,
+  largeScreens,
+  tabletDevice,
+} from "../../../settings/sizing";
 import { SectionContentAndImages } from "components/shared/SectionContentAndImages";
 import { TRANSLATION } from "translation/translation";
 import InfoWithBulletSection from "components/shared/InfoWithBulletSection";
@@ -141,5 +147,17 @@ const MaintenanceLoan = () => {
 export default MaintenanceLoan;
 
 export const MainContainer = styled.div`
-  padding: ${DesktopPagePadding}px;
+  padding: ${DesktopPagePadding - 80}px;
+
+  @media (min-width: ${tabletDevice}px) {
+    padding: ${DesktopPagePadding - 70}px;
+  }
+
+  @media (min-width: ${desktopDevice}px) {
+    padding: ${DesktopPagePadding}px;
+  }
+
+  @media (min-width: ${largeScreens}px) {
+    padding: ${DesktopPagePadding}px;
+  }
 `;

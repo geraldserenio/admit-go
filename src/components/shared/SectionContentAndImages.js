@@ -1,6 +1,12 @@
 import React from "react";
 import { LIGHT_ORANGE_BACKGROUND } from "settings/colors";
-import { gap, marginTop } from "settings/sizing";
+import {
+  desktopDevice,
+  gap,
+  largeScreens,
+  marginTop,
+  tabletDevice,
+} from "settings/sizing";
 import styled from "styled-components";
 import SloganSection from "./SloganSection";
 import { generateIcon, Icon } from "settings/generate-icon";
@@ -63,14 +69,37 @@ export const SectionContentAndImages = (props) => {
 };
 
 const SloganRightImage = styled.div`
-  width: 50%;
+  width: 100%;
+  @media (min-width: ${tabletDevice}px) {
+    width: 100%;
+  }
+
+  @media (min-width: ${desktopDevice}px) {
+    width: 50%;
+  }
+
+  @media (min-width: ${largeScreens}px) {
+    width: 50%;
+  }
 `;
 
 const SloganContainer = styled.div`
-  display: flex;
+  display: block;
   align-items: center;
   box-sizing: border-box;
   gap: ${gap}px;
   box-sizing: border-box;
   padding: ${gap}px;
+
+  @media (min-width: ${tabletDevice}px) {
+    display: block;
+  }
+
+  @media (min-width: ${desktopDevice}px) {
+    display: flex;
+  }
+
+  @media (min-width: ${largeScreens}px) {
+    display: flex;
+  }
 `;

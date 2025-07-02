@@ -1,7 +1,14 @@
 import React from "react";
 
 import styled from "styled-components";
-import { DesktopPagePadding, gap, marginTop } from "../../../settings/sizing";
+import {
+  desktopDevice,
+  DesktopPagePadding,
+  gap,
+  largeScreens,
+  marginTop,
+  tabletDevice,
+} from "../../../settings/sizing";
 import { H2, H3, Paragraph } from "../../../components/HomeSloganSection";
 import { PURPLE } from "../../../settings/colors";
 import { TRANSLATION } from "../../../translation/translation";
@@ -39,8 +46,19 @@ const SecondSection = () => {
 export default SecondSection;
 
 const TileContainer = styled.div`
-  display: flex;
+  display: block;
   gap: ${gap}px;
+  @media (min-width: ${tabletDevice}px) {
+    display: block;
+  }
+
+  @media (min-width: ${desktopDevice}px) {
+    display: flex;
+  }
+
+  @media (min-width: ${largeScreens}px) {
+    display: flex;
+  }
 `;
 
 export const MainContainer = styled.div`

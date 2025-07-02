@@ -1,7 +1,12 @@
 import React from "react";
 import styled, { keyframes, css } from "styled-components";
 import { DARK_PURPLE, ORANGE, PURPLE } from "../settings/colors";
-import { gap } from "../settings/sizing";
+import {
+  desktopDevice,
+  gap,
+  largeScreens,
+  tabletDevice,
+} from "../settings/sizing";
 import { TRANSLATION } from "../translation/translation";
 import { bounce } from "./shared/SloganSection";
 import { useInView } from "react-intersection-observer";
@@ -79,10 +84,22 @@ const HeroSection = styled.div`
   align-items: center;
   color: var(--text-on-primary);
   text-align: center;
-  width: 50%;
+  width: 100%;
   padding: ${gap}px;
   box-sizing: border-box;
   overflow: hidden;
+
+  @media (min-width: ${tabletDevice}px) {
+    width: 100%;
+  }
+
+  @media (min-width: ${desktopDevice}px) {
+    width: 50%;
+  }
+
+  @media (min-width: ${largeScreens}px) {
+    width: 50%;
+  }
 `;
 
 export const PrimaryButton = styled.button`

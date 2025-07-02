@@ -4,7 +4,12 @@ import { MainContainer } from "pages/home/Home";
 import React, { useState } from "react";
 import { ORANGE, PURPLE } from "settings/colors";
 import { generateIcon, Icon } from "settings/generate-icon";
-import { gap } from "settings/sizing";
+import {
+  desktopDevice,
+  gap,
+  largeScreens,
+  tabletDevice,
+} from "settings/sizing";
 import styled from "styled-components";
 import { TRANSLATION } from "translation/translation";
 
@@ -30,7 +35,7 @@ const ContactForm = () => {
       <Container>
         <Icon
           src={generateIcon("w4")}
-          style={{ width: "50%", height: "600px", borderRadius: "40px" }}
+          style={{ height: "600px", borderRadius: "40px" }}
         />
         <FormWrapper>
           <Title>{TRANSLATION?.contact_form?.want_to_know_more[lang]}</Title>
@@ -97,9 +102,20 @@ const ContactForm = () => {
 export default ContactForm;
 
 const Container = styled.div`
-  display: flex;
+  display: block;
   gap: ${gap * 2}px;
   animation: ${slideFromLeft} 1s ease-out forwards;
+  @media (min-width: ${tabletDevice}px) {
+    display: block;
+  }
+
+  @media (min-width: ${desktopDevice}px) {
+    display: flex;
+  }
+
+  @media (min-width: ${largeScreens}px) {
+    display: flex;
+  }
 `;
 
 const FormWrapper = styled.div`

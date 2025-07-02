@@ -16,6 +16,7 @@ import w4 from "assets/images/w4.png";
 import w5 from "assets/images/w5.png";
 import { slideFromLeft } from "components/HomeSloganSection";
 import { slideFromRight } from "pages/home/Home";
+import { desktopDevice, largeScreens, tabletDevice } from "settings/sizing";
 
 const BachelorPage = () => {
   const lang = localStorage.getItem("lang") || "en";
@@ -255,7 +256,7 @@ const StyledImage = styled.img`
 `;
 
 const FullWidthText = styled.section`
-  padding: 4rem 14rem;
+  padding: 1rem 3rem;
   text-align: center;
 
   h2 {
@@ -277,6 +278,19 @@ const FullWidthText = styled.section`
     line-height: 1.6;
     padding-left: 1.5rem;
   }
+  box-sizing: border-box;
+
+  @media (min-width: ${tabletDevice}px) {
+    padding: 1rem 3rem;
+  }
+
+  @media (min-width: ${desktopDevice}px) {
+    padding: 4rem 14rem;
+  }
+
+  @media (min-width: ${largeScreens}px) {
+    padding: 4rem 14rem;
+  }
 `;
 
 const FactGrid = styled.section`
@@ -285,6 +299,18 @@ const FactGrid = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
+
+  @media (min-width: ${tabletDevice}px) {
+    padding: 1rem 3rem;
+  }
+
+  @media (min-width: ${desktopDevice}px) {
+    padding: 4rem 14rem;
+  }
+
+  @media (min-width: ${largeScreens}px) {
+    padding: 4rem 14rem;
+  }
 `;
 
 const FactCard = styled.div`

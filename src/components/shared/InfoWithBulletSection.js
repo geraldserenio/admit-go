@@ -1,7 +1,12 @@
 import React from "react";
 import { LIGHT_ORANGE_BACKGROUND, PURPLE } from "settings/colors";
 import { generateIcon, Icon } from "settings/generate-icon";
-import { gap } from "settings/sizing";
+import {
+  desktopDevice,
+  gap,
+  largeScreens,
+  tabletDevice,
+} from "settings/sizing";
 import styled from "styled-components";
 
 const InfoWithBulletSection = ({ image, title, sections }) => {
@@ -37,13 +42,24 @@ const InfoWithBulletSection = ({ image, title, sections }) => {
 export default InfoWithBulletSection;
 
 const SectionWrapper = styled.section`
-  display: flex;
+  display: block;
   gap: 40px;
   padding: 60px 30px;
   margin: auto;
   margin-bottom: ${gap * 5}px;
   background-color: ${LIGHT_ORANGE_BACKGROUND};
   box-sizing: border-box;
+  @media (min-width: ${tabletDevice}px) {
+    display: block;
+  }
+
+  @media (min-width: ${desktopDevice}px) {
+    display: flex;
+  }
+
+  @media (min-width: ${largeScreens}px) {
+    display: flex;
+  }
 `;
 
 const Content = styled.div`
@@ -51,7 +67,18 @@ const Content = styled.div`
 `;
 
 const ImageContainer = styled.div`
-  width: 50%;
+  width: 100%;
+  @media (min-width: ${tabletDevice}px) {
+    width: 100%;
+  }
+
+  @media (min-width: ${desktopDevice}px) {
+    width: 50%;
+  }
+
+  @media (min-width: ${largeScreens}px) {
+    width: 50%;
+  }
 `;
 
 const Title = styled.h2`

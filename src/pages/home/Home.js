@@ -3,7 +3,14 @@ import styled, { keyframes, css } from "styled-components";
 import HomeSloganSection, {
   slideFromLeft,
 } from "../../components/HomeSloganSection";
-import { DesktopPagePadding, gap, marginTop } from "../../settings/sizing";
+import {
+  desktopDevice,
+  DesktopPagePadding,
+  gap,
+  largeScreens,
+  marginTop,
+  tabletDevice,
+} from "../../settings/sizing";
 import SecondSection from "./sections/SecondSection";
 import { generateIcon, Icon } from "../../settings/generate-icon";
 import { LIGHT_ORANGE_BACKGROUND } from "../../settings/colors";
@@ -63,20 +70,56 @@ const Home = () => {
 export default Home;
 
 export const MainContainer = styled.div`
-  padding: ${DesktopPagePadding}px;
+  box-sizing: border-box;
+  padding: ${DesktopPagePadding - 80}px;
+
+  @media (min-width: ${tabletDevice}px) {
+    padding: ${DesktopPagePadding - 70}px;
+  }
+
+  @media (min-width: ${desktopDevice}px) {
+    padding: ${DesktopPagePadding}px;
+  }
+
+  @media (min-width: ${largeScreens}px) {
+    padding: ${DesktopPagePadding}px;
+  }
 `;
 
 const SloganRightImage = styled.div`
-  width: 50%;
+  width: 100%;
   ${animateOnVisibleRight};
+  @media (min-width: ${tabletDevice}px) {
+    width: 100%;
+  }
+
+  @media (min-width: ${desktopDevice}px) {
+    width: 50%;
+  }
+
+  @media (min-width: ${largeScreens}px) {
+    width: 50%;
+  }
 `;
 
 const SloganContainer = styled.div`
-  display: flex;
   align-items: center;
   box-sizing: border-box;
   gap: ${gap}px;
   background-color: ${LIGHT_ORANGE_BACKGROUND};
   box-sizing: border-box;
   padding: ${gap}px;
+  display: block;
+
+  @media (min-width: ${tabletDevice}px) {
+    display: block;
+  }
+
+  @media (min-width: ${desktopDevice}px) {
+    display: flex;
+  }
+
+  @media (min-width: ${largeScreens}px) {
+    display: flex;
+  }
 `;

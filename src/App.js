@@ -13,17 +13,11 @@ import Master from "pages/master/MasterDegree";
 import WhoWeArePage from "pages/who-we-are/WhoWeArePage";
 import ContactForm from "pages/contact-form/ContactPage";
 import MaintenanceLoan from "pages/finance/maintenance-loan/MaintenanceLoan";
-import TuitionFeeLoanSection from "pages/finance/maintenance-loan/TuitionFeeLoanSection";
 import { TuitionFeeLoanPage } from "pages/finance/maintenance-loan/TuitionFeeLoanPage";
 import WhatsAppFloatingButton from "components/shared/WhatsAppFloatingButton";
 import PrivacyPolicyPage from "pages/privacy-policy/PrivacyPolicyPage";
 import TermsAndConditionPage from "pages/terms-and-conditions/TermsAndConditionPage";
 import Cookies from "pages/cookies/Cookies";
-// import Master from "./pages/Master";
-// import Contact from "./pages/Contact";
-// import Courses from "./pages/Courses";
-// import Finance from "./pages/Finance";
-// import ReferAFriend from "./pages/ReferAFriend";
 
 const App = () => (
   <>
@@ -52,12 +46,6 @@ const App = () => (
       <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
       <Route path="/terms-and-conditions" element={<TermsAndConditionPage />} />
       <Route path="/cookies" element={<Cookies />} />
-
-      {/* 
-      <Route path="/courses" element={<Courses />} />
-      <Route path="/finance" element={<Finance />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/refer-a-friend" element={<ReferAFriend />} /> */}
     </Routes>
     <WhatsAppFloatingButton />
     <Footer />
