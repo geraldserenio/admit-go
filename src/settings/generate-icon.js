@@ -9,7 +9,7 @@ import w6 from "../assets/images/w6.webp";
 import w7 from "../assets/images/w7.webp";
 import w8 from "../assets/images/w8.webp";
 import w9 from "../assets/images/w9.webp";
-import Logo from "../assets/images/Logo.png";
+import Logo from "../assets/images/Logo.webp";
 import WhatsApp from "../assets/icons8-whatsapp-48.png";
 import { slideFromRight } from "pages/home/Home";
 
