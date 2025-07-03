@@ -11,12 +11,12 @@ import {
 } from "settings/colors";
 import { TRANSLATION } from "translation/translation";
 
-import image1 from "assets/images/w1.png";
-import image2 from "assets/images/w2.png";
-import image3 from "assets/images/w3.png";
-import image4 from "assets/images/w4.png";
-import image5 from "assets/images/w5.png";
-import image6 from "assets/images/w6.png";
+import image1 from "assets/images/w1.webp";
+import image2 from "assets/images/w2.webp";
+import image3 from "assets/images/w3.webp";
+import image4 from "assets/images/w4.webp";
+import image5 from "assets/images/w5.webp";
+import image6 from "assets/images/w6.webp";
 import { slideFromRight } from "pages/home/Home";
 import { slideFromLeft } from "components/HomeSloganSection";
 
