@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { keyframes, css } from "styled-components";
 import HomeSloganSection, {
-  slideFromLeft,
+  animateOnVisible,
 } from "../../components/HomeSloganSection";
 import {
   desktopDevice,
@@ -57,7 +57,7 @@ const Home = () => {
         style={{ marginTop: marginTop, backgroundColor: "transparent" }}
       >
         <SloganRightImage>
-          <Icon src={generateIcon("w8")} />
+          <Icons src={generateIcon("w8")} ref={ref} $isVisible={inView} />
         </SloganRightImage>
         <WhoWeAre />
       </SloganContainer>
@@ -68,6 +68,14 @@ const Home = () => {
 };
 
 export default Home;
+
+const Icons = styled.img`
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 40px;
+  ${animateOnVisible};
+`;
 
 export const MainContainer = styled.div`
   box-sizing: border-box;

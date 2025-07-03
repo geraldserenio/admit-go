@@ -15,12 +15,16 @@ import w3 from "assets/images/w3.png";
 import w4 from "assets/images/w4.png";
 import w5 from "assets/images/w5.png";
 import { slideFromLeft } from "components/HomeSloganSection";
-import { slideFromRight } from "pages/home/Home";
+import { animateOnVisibleRight, slideFromRight } from "pages/home/Home";
 import { desktopDevice, largeScreens, tabletDevice } from "settings/sizing";
+import { useInView } from "react-intersection-observer";
 
 const BachelorPage = () => {
   const lang = localStorage.getItem("lang") || "en";
-
+  const [ref, inView] = useInView({
+    triggerOnce: true, // only animate once
+    threshold: 0.3, // % of component visible before triggering
+  });
   return (
     <PageWrapper>
       <Helmet>
@@ -53,7 +57,7 @@ const BachelorPage = () => {
         <p>{TRANSLATION?.bachelor_value_text[lang]}</p>
       </FullWidthText>
 
-      <FactGrid>
+      <FactGrid ref={ref} $isVisible={inView}>
         <FactCard>
           <h4>⏳ Duration</h4>
           <p>
@@ -299,6 +303,8 @@ const FactGrid = styled.section`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
+
+  ${animateOnVisibleRight};
 
   @media (min-width: ${tabletDevice}px) {
     padding: 1rem 3rem;
