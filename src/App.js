@@ -29,8 +29,8 @@ const App = () => (
       />
     </Helmet>
     <GlobalStyle />
-    <Header />
-    <Routes>
+    {/* <Header /> */}
+    {/* <Routes>
       <Route path="/" element={<Navigate to="/home" replace />} />
       <Route path="/home" element={<Home />} />
       <Route path="/study/year-zero" element={<YearZero />} />
@@ -46,9 +46,9 @@ const App = () => (
       <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
       <Route path="/terms-and-conditions" element={<TermsAndConditionPage />} />
       <Route path="/cookies" element={<Cookies />} />
-    </Routes>
-    <WhatsAppFloatingButton />
-    <Footer />
+    </Routes> */}
+    {/* <WhatsAppFloatingButton /> */}
+    {/* <Footer /> */}
   </>
 );
 
