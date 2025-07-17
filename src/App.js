@@ -29,15 +29,15 @@ const App = () => (
       />
     </Helmet>
     <GlobalStyle />
-    {/* <Header /> */}
-    {/* <Routes>
+    <Header />
+    <Routes>
       <Route path="/" element={<Navigate to="/home" replace />} />
       <Route path="/home" element={<Home />} />
       <Route path="/study/year-zero" element={<YearZero />} />
       <Route path="/study/bachelor" element={<Bachelor />} />
       <Route path="/study/master" element={<Master />} />
       <Route path="/who-we-are" element={<WhoWeArePage />} />
-      <Route path="/contact-us" element={<ContactForm />} />
+      {/* <Route path="/contact-us" element={<ContactForm />} />
       <Route path="/finance/maintenance-loan" element={<MaintenanceLoan />} />
       <Route
         path="/finance/tuition-fee-loan"
@@ -45,10 +45,10 @@ const App = () => (
       />
       <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
       <Route path="/terms-and-conditions" element={<TermsAndConditionPage />} />
-      <Route path="/cookies" element={<Cookies />} />
-    </Routes> */}
-    {/* <WhatsAppFloatingButton /> */}
-    {/* <Footer /> */}
+      <Route path="/cookies" element={<Cookies />} /> */}
+    </Routes>
+    <WhatsAppFloatingButton />
+    <Footer />
   </>
 );
 
