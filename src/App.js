@@ -37,7 +37,7 @@ const App = () => (
       <Route path="/study/bachelor" element={<Bachelor />} />
       <Route path="/study/master" element={<Master />} />
       <Route path="/who-we-are" element={<WhoWeArePage />} />
-      {/* <Route path="/contact-us" element={<ContactForm />} />
+      <Route path="/contact-us" element={<ContactForm />} />
       <Route path="/finance/maintenance-loan" element={<MaintenanceLoan />} />
       <Route
         path="/finance/tuition-fee-loan"
@@ -45,7 +45,7 @@ const App = () => (
       />
       <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
       <Route path="/terms-and-conditions" element={<TermsAndConditionPage />} />
-      <Route path="/cookies" element={<Cookies />} /> */}
+      <Route path="/cookies" element={<Cookies />} />
     </Routes>
     <WhatsAppFloatingButton />
     <Footer />
